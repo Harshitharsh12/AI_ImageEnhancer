@@ -1,6 +1,10 @@
 import axios from "axios";
 import React from "react";
-// EnhancedImage:
+import dotenv from "dotenv";
+
+// EnhancedImage
+dotenv.config();
+
 const ImageUpload = (props) => {
   const showImageHandler = async (e) => {
     const file = e.target.files[0];
@@ -35,7 +39,7 @@ const ImageUpload = (props) => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            "X-API-KEY": API_KEY,
+            "X-API-KEY": process.env.API_KEY,
           },
         }
       );
@@ -53,7 +57,7 @@ const ImageUpload = (props) => {
       const res = await axios.get(
         `https://techhk.aoscdn.com/api/tasks/visual/scale/${taskId}`,
         {
-          headers: { "X-API-KEY": API_KEY },
+          headers: { "X-API-KEY": process.env.API_KEY },
         }
       );
       if (res) {
