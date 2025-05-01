@@ -2,7 +2,6 @@ import axios from "axios";
 import React from "react";
 // TaskId:22ab255e-6ce8-4ccd-b55a-489adee56162
 // EnhancedImage:
-const port = 5173;
 const ImageUpload = (props) => {
   const showImageHandler = async (e) => {
     const file = e.target.files[0];
@@ -37,7 +36,7 @@ const ImageUpload = (props) => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            "X-API-KEY": "wxagsmydtqlp9fn28",
+            "X-API-KEY": API_KEY,
           },
         }
       );
@@ -55,7 +54,7 @@ const ImageUpload = (props) => {
       const res = await axios.get(
         `https://techhk.aoscdn.com/api/tasks/visual/scale/${taskId}`,
         {
-          headers: { "X-API-KEY": "wxagsmydtqlp9fn28" },
+          headers: { "X-API-KEY": API_KEY },
         }
       );
       if (res) {
